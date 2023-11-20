@@ -34,6 +34,7 @@ namespace QuanLyHocSinh
             InitializeComponent();
             loadData();
             dgvLopHoc.ReadOnly = true;
+            dgvLopHoc.Columns["MaLop"].Visible = false;
         }
         private void dgvLopHoc_CellClick(object sender, DataGridViewCellEventArgs e)
         {

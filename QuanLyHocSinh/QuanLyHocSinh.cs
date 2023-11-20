@@ -15,7 +15,7 @@ namespace QuanLyHocSinh
         string maHs = "";
         private void loadData()
         {
-            dgvHocSinh.DataSource = Database.Query("select * from HocSinh");
+            dgvHocSinh.DataSource = Database.Query("select MaHocSinh,HoTen,NgaySinh,DiaChi,Email,DienThoai,TenLop from HocSinh inner join Lop on HocSinh.MaLop = Lop.MaLop");
             maHs = "";
             txtHoTen.Text = "";
             txtDiaChi.Text = "";
@@ -27,29 +27,63 @@ namespace QuanLyHocSinh
         {
             InitializeComponent();
             loadData();
+            loadCbbLop();
         }
-
+        private void loadCbbLop()
+        {
+            cbbLop.ValueMember = "MaLop";
+            cbbLop.DisplayMember = "TenLop";
+            cbbLop.DataSource = Database.Query("select * from Lop");
+        }
+        private bool checkForm()
+        {
+            bool ketQua = true;
+            erpBaoLoi.Clear();
+            if (txtHoTen.Text == "")
+            {
+                erpBaoLoi.SetError(txtHoTen, "Chưa điền họ tên.");
+                ketQua = false;
+            }
+            if (txtDiaChi.Text == "")
+            {
+                erpBaoLoi.SetError(txtDiaChi, "Chưa điền địa chỉ.");
+                ketQua = false;
+            }
+            if (txtEmail.Text == "")
+            {
+                erpBaoLoi.SetError(txtEmail, "Chưa điền email.");
+                ketQua = false;
+            }
+            if (txtSdt.Text == "")
+            {
+                erpBaoLoi.SetError(txtSdt, "Chưa điền số điện thoại.");
+                ketQua = false;
+            }
+            return ketQua;
+        }
         private void btnThem_Click(object sender, EventArgs e)
         {
             try
             {
-                if (txtHoTen.Text == "" || txtDiaChi.Text == "" || txtEmail.Text == "" || txtSdt.Text == "")
-                {
-                    MessageBox.Show("Các ô không được để trống.");
-                    return;
-                }
-                else if (txtHoTen.Text.Length > 35 || txtDiaChi.Text.Length > 100 || txtEmail.Text.Length > 50 || txtSdt.Text.Length > 10)
-                {
-                    MessageBox.Show("Quá độ dài dữ liệu.");
-                    return;
-                }
-                string query = "insert into HocSinh(HoTen, NgaySinh, DiaChi, Email, DienThoai) values (@HoTen, @NgaySinh, @DiaChi, @Email, @DienThoai)";
+                checkForm();
+                //if (txtHoTen.Text == "" || txtDiaChi.Text == "" || txtEmail.Text == "" || txtSdt.Text == "")
+                //{
+                //    MessageBox.Show("Các ô không được để trống.");
+                //    return;
+                //}
+                //else if (txtHoTen.Text.Length > 35 || txtDiaChi.Text.Length > 100 || txtEmail.Text.Length > 50 || txtSdt.Text.Length > 10)
+                //{
+                //    MessageBox.Show("Quá độ dài dữ liệu.");
+                //    return;
+                //}
+                string query = "insert into HocSinh(HoTen, NgaySinh, DiaChi, Email, DienThoai, MaLop) values (@HoTen, @NgaySinh, @DiaChi, @Email, @DienThoai, @MaLop)";
                 Dictionary<string, object> parameters = new Dictionary<string, object>();
                 parameters.Add("@HoTen", txtHoTen.Text);
                 parameters.Add("@NgaySinh", dtpNgaySinh.Value);
                 parameters.Add("@DiaChi", txtDiaChi.Text);
                 parameters.Add("@Email", txtEmail.Text);
                 parameters.Add("@DienThoai", txtSdt.Text);
+                parameters.Add("@MaLop", cbbLop.SelectedValue.ToString());
                 Database.Execute(query, parameters);
                 loadData();
             }
@@ -62,17 +96,8 @@ namespace QuanLyHocSinh
         {
             try
             {
-                if (txtHoTen.Text == "" || txtDiaChi.Text == "" || txtEmail.Text == "" || txtSdt.Text == "")
-                {
-                    MessageBox.Show("Các ô không được để trống.");
-                    return;
-                }
-                else if (txtHoTen.Text.Length > 35 || txtDiaChi.Text.Length > 100 || txtEmail.Text.Length > 50 || txtSdt.Text.Length > 10)
-                {
-                    MessageBox.Show("Quá độ dài dữ liệu.");
-                    return;
-                }
-                string query = "update HocSinh set HoTen=@HoTen, NgaySinh=@NgaySinh, DiaChi=@DiaChi, Email=@Email, DienThoai=@DienThoai where MaHocSinh=@MaHocSinh";
+                checkForm();
+                string query = "update HocSinh set HoTen=@HoTen, NgaySinh=@NgaySinh, DiaChi=@DiaChi, Email=@Email, DienThoai=@DienThoai, MaLop=@MaLop where MaHocSinh=@MaHocSinh";
                 Dictionary<string, object> parameters = new Dictionary<string, object>();
                 parameters.Add("@MaHocSinh", maHs);
                 parameters.Add("@HoTen", txtHoTen.Text);
@@ -80,6 +105,7 @@ namespace QuanLyHocSinh
                 parameters.Add("@DiaChi", txtDiaChi.Text);
                 parameters.Add("@Email", txtEmail.Text);
                 parameters.Add("@DienThoai", txtSdt.Text);
+                parameters.Add("@MaLop", cbbLop.SelectedValue.ToString());
                 Database.Execute(query, parameters);
                 loadData();
             }
@@ -107,7 +133,7 @@ namespace QuanLyHocSinh
         {
             try
             {
-                string query = "select * from HocSinh where 1=1";
+                string query = "select MaHocSinh,HoTen,NgaySinh,DiaChi,Email,DienThoai,TenLop from HocSinh inner join Lop on HocSinh.MaLop = Lop.MaLop where 1=1";
                 Dictionary<string, object> parameters = new Dictionary<string, object>();
                 if (chbMa.Checked)
                 {
@@ -139,6 +165,11 @@ namespace QuanLyHocSinh
                     query = query + " AND DienThoai LIKE '%' + @DienThoai + '%'";
                     parameters.Add("@DienThoai", txtSdt.Text);
                 }
+                if (chbLop.Checked)
+                {
+                    query = query + " AND Lop.MaLop LIKE '%' + @MaLop + '%'";
+                    parameters.Add("@MaLop", cbbLop.SelectedValue.ToString());
+                }
                 dgvHocSinh.DataSource = Database.Query(query, parameters);
             }
             catch (Exception ex)
@@ -163,6 +194,7 @@ namespace QuanLyHocSinh
                 txtDiaChi.Text = dgvHocSinh.Rows[e.RowIndex].Cells[3].Value.ToString();
                 txtEmail.Text = dgvHocSinh.Rows[e.RowIndex].Cells[4].Value.ToString();
                 txtSdt.Text = dgvHocSinh.Rows[e.RowIndex].Cells[5].Value.ToString();
+                cbbLop.Text = dgvHocSinh.Rows[e.RowIndex].Cells[6].Value.ToString();
             }
         }
         private void chbMa_CheckedChanged(object sender, EventArgs e)

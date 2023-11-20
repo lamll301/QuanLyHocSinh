@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.quảnLýHọcSinhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvHocSinh = new System.Windows.Forms.DataGridView();
             this.txtHoTen = new System.Windows.Forms.TextBox();
@@ -56,20 +57,25 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtMahs = new System.Windows.Forms.TextBox();
             this.chbMa = new System.Windows.Forms.CheckBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.chbLop = new System.Windows.Forms.CheckBox();
+            this.cbbLop = new System.Windows.Forms.ComboBox();
+            this.erpBaoLoi = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHocSinh)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.erpBaoLoi)).BeginInit();
             this.SuspendLayout();
             // 
             // quảnLýHọcSinhToolStripMenuItem
             // 
             this.quảnLýHọcSinhToolStripMenuItem.Name = "quảnLýHọcSinhToolStripMenuItem";
-            this.quảnLýHọcSinhToolStripMenuItem.Size = new System.Drawing.Size(131, 26);
+            this.quảnLýHọcSinhToolStripMenuItem.Size = new System.Drawing.Size(131, 24);
             this.quảnLýHọcSinhToolStripMenuItem.Text = "Quản lý học sinh";
             // 
             // dgvHocSinh
             // 
             this.dgvHocSinh.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHocSinh.Location = new System.Drawing.Point(11, 263);
+            this.dgvHocSinh.Location = new System.Drawing.Point(12, 363);
             this.dgvHocSinh.Name = "dgvHocSinh";
             this.dgvHocSinh.RowHeadersWidth = 51;
             this.dgvHocSinh.RowTemplate.Height = 24;
@@ -87,7 +93,7 @@
             // 
             // btnHt
             // 
-            this.btnHt.Location = new System.Drawing.Point(762, 221);
+            this.btnHt.Location = new System.Drawing.Point(763, 321);
             this.btnHt.Name = "btnHt";
             this.btnHt.Size = new System.Drawing.Size(207, 36);
             this.btnHt.TabIndex = 7;
@@ -97,7 +103,7 @@
             // 
             // btnTk
             // 
-            this.btnTk.Location = new System.Drawing.Point(301, 221);
+            this.btnTk.Location = new System.Drawing.Point(302, 321);
             this.btnTk.Name = "btnTk";
             this.btnTk.Size = new System.Drawing.Size(102, 36);
             this.btnTk.TabIndex = 8;
@@ -107,7 +113,7 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(205, 221);
+            this.btnXoa.Location = new System.Drawing.Point(206, 321);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(90, 36);
             this.btnXoa.TabIndex = 9;
@@ -117,7 +123,7 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(107, 221);
+            this.btnSua.Location = new System.Drawing.Point(108, 321);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(90, 36);
             this.btnSua.TabIndex = 10;
@@ -127,7 +133,7 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(11, 221);
+            this.btnThem.Location = new System.Drawing.Point(12, 321);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(90, 36);
             this.btnThem.TabIndex = 11;
@@ -169,7 +175,7 @@
             // quảnLýLớpHọcToolStripMenuItem
             // 
             this.quảnLýLớpHọcToolStripMenuItem.Name = "quảnLýLớpHọcToolStripMenuItem";
-            this.quảnLýLớpHọcToolStripMenuItem.Size = new System.Drawing.Size(127, 26);
+            this.quảnLýLớpHọcToolStripMenuItem.Size = new System.Drawing.Size(127, 24);
             this.quảnLýLớpHọcToolStripMenuItem.Text = "Quản lý lớp học";
             this.quảnLýLớpHọcToolStripMenuItem.Click += new System.EventHandler(this.quảnLýLớpHọcToolStripMenuItem_Click);
             // 
@@ -322,16 +328,50 @@
             this.chbMa.UseVisualStyleBackColor = true;
             this.chbMa.CheckedChanged += new System.EventHandler(this.chbMa_CheckedChanged);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(13, 259);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(30, 16);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Lớp";
+            // 
+            // chbLop
+            // 
+            this.chbLop.AutoSize = true;
+            this.chbLop.Location = new System.Drawing.Point(72, 225);
+            this.chbLop.Name = "chbLop";
+            this.chbLop.Size = new System.Drawing.Size(135, 20);
+            this.chbLop.TabIndex = 16;
+            this.chbLop.Text = "Tìm kiếm theo lớp";
+            this.chbLop.UseVisualStyleBackColor = true;
+            // 
+            // cbbLop
+            // 
+            this.cbbLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbLop.FormattingEnabled = true;
+            this.cbbLop.Location = new System.Drawing.Point(71, 253);
+            this.cbbLop.Name = "cbbLop";
+            this.cbbLop.Size = new System.Drawing.Size(206, 28);
+            this.cbbLop.TabIndex = 17;
+            // 
+            // erpBaoLoi
+            // 
+            this.erpBaoLoi.ContainerControl = this;
+            // 
             // QuanLyHocSinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(982, 603);
+            this.ClientSize = new System.Drawing.Size(982, 703);
+            this.Controls.Add(this.cbbLop);
             this.Controls.Add(this.chbSdt);
             this.Controls.Add(this.chbEmail);
             this.Controls.Add(this.chbDiaChi);
             this.Controls.Add(this.chbNgaySinh);
             this.Controls.Add(this.chbMa);
+            this.Controls.Add(this.chbLop);
             this.Controls.Add(this.chbHoTen);
             this.Controls.Add(this.dtpNgaySinh);
             this.Controls.Add(this.dgvHocSinh);
@@ -351,6 +391,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "QuanLyHocSinh";
@@ -359,6 +400,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvHocSinh)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.erpBaoLoi)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -394,5 +436,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtMahs;
         private System.Windows.Forms.CheckBox chbMa;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox chbLop;
+        private System.Windows.Forms.ComboBox cbbLop;
+        private System.Windows.Forms.ErrorProvider erpBaoLoi;
     }
 }
