@@ -44,9 +44,19 @@ namespace QuanLyHocSinh
                 erpBaoLoi.SetError(txtHoTen, "Chưa điền họ tên.");
                 ketQua = false;
             }
+            if (txtHoTen.Text.Length > 35)
+            {
+                erpBaoLoi.SetError(txtHoTen, "Họ tên vượt quá 35 ký tự.");
+                ketQua = false;
+            }
             if (txtDiaChi.Text == "")
             {
                 erpBaoLoi.SetError(txtDiaChi, "Chưa điền địa chỉ.");
+                ketQua = false;
+            }
+            if (txtDiaChi.Text.Length > 100)
+            {
+                erpBaoLoi.SetError(txtDiaChi, "Địa chỉ vượt quá 100 ký tự.");
                 ketQua = false;
             }
             if (txtEmail.Text == "")
@@ -54,9 +64,19 @@ namespace QuanLyHocSinh
                 erpBaoLoi.SetError(txtEmail, "Chưa điền email.");
                 ketQua = false;
             }
+            if (txtEmail.Text.Length > 50)
+            {
+                erpBaoLoi.SetError(txtEmail, "Email vượt quá 50 ký tự.");
+                ketQua = false;
+            }
             if (txtSdt.Text == "")
             {
                 erpBaoLoi.SetError(txtSdt, "Chưa điền số điện thoại.");
+                ketQua = false;
+            }
+            if (txtSdt.Text.Length > 10)
+            {
+                erpBaoLoi.SetError(txtSdt, "Số điện thoại vượt quá 10 ký tự.");
                 ketQua = false;
             }
             return ketQua;
@@ -65,7 +85,10 @@ namespace QuanLyHocSinh
         {
             try
             {
-                checkForm();
+                if (checkForm() == false)
+                {
+                    return;
+                }
                 //if (txtHoTen.Text == "" || txtDiaChi.Text == "" || txtEmail.Text == "" || txtSdt.Text == "")
                 //{
                 //    MessageBox.Show("Các ô không được để trống.");
@@ -96,7 +119,10 @@ namespace QuanLyHocSinh
         {
             try
             {
-                checkForm();
+                if (checkForm() == false)
+                {
+                    return;
+                }
                 string query = "update HocSinh set HoTen=@HoTen, NgaySinh=@NgaySinh, DiaChi=@DiaChi, Email=@Email, DienThoai=@DienThoai, MaLop=@MaLop where MaHocSinh=@MaHocSinh";
                 Dictionary<string, object> parameters = new Dictionary<string, object>();
                 parameters.Add("@MaHocSinh", maHs);

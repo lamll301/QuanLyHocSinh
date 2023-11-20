@@ -79,7 +79,7 @@
             this.dgvHocSinh.Name = "dgvHocSinh";
             this.dgvHocSinh.RowHeadersWidth = 51;
             this.dgvHocSinh.RowTemplate.Height = 24;
-            this.dgvHocSinh.Size = new System.Drawing.Size(958, 328);
+            this.dgvHocSinh.Size = new System.Drawing.Size(988, 328);
             this.dgvHocSinh.TabIndex = 14;
             this.dgvHocSinh.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHocSinh_CellClick);
             // 
@@ -93,7 +93,7 @@
             // 
             // btnHt
             // 
-            this.btnHt.Location = new System.Drawing.Point(763, 321);
+            this.btnHt.Location = new System.Drawing.Point(793, 321);
             this.btnHt.Name = "btnHt";
             this.btnHt.Size = new System.Drawing.Size(207, 36);
             this.btnHt.TabIndex = 7;
@@ -168,7 +168,7 @@
             this.quảnLýLớpHọcToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(982, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1012, 28);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -364,7 +364,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(982, 703);
+            this.ClientSize = new System.Drawing.Size(1012, 703);
             this.Controls.Add(this.cbbLop);
             this.Controls.Add(this.chbSdt);
             this.Controls.Add(this.chbEmail);
