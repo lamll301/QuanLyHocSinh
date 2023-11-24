@@ -159,5 +159,10 @@ namespace QuanLyHocSinh
             this.Hide();
             f.ShowDialog();
         }
+
+        private void dgvLopHoc_Enter(object sender, EventArgs e)
+        {
+            MessageBox.Show("ENTER");
+        }
     }
 }

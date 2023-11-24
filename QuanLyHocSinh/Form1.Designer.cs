@@ -34,12 +34,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.quảnLýHọcSinhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quảnLýLớpHọcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvLopHoc = new System.Windows.Forms.DataGridView();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnTk = new System.Windows.Forms.Button();
             this.btnHt = new System.Windows.Forms.Button();
-            this.quảnLýLớpHọcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLopHoc)).BeginInit();
             this.SuspendLayout();
@@ -100,6 +100,12 @@
             this.quảnLýHọcSinhToolStripMenuItem.Text = "Quản lý học sinh";
             this.quảnLýHọcSinhToolStripMenuItem.Click += new System.EventHandler(this.quảnLýHọcSinhToolStripMenuItem_Click);
             // 
+            // quảnLýLớpHọcToolStripMenuItem
+            // 
+            this.quảnLýLớpHọcToolStripMenuItem.Name = "quảnLýLớpHọcToolStripMenuItem";
+            this.quảnLýLớpHọcToolStripMenuItem.Size = new System.Drawing.Size(127, 24);
+            this.quảnLýLớpHọcToolStripMenuItem.Text = "Quản lý lớp học";
+            // 
             // dgvLopHoc
             // 
             this.dgvLopHoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -110,6 +116,7 @@
             this.dgvLopHoc.Size = new System.Drawing.Size(958, 328);
             this.dgvLopHoc.TabIndex = 4;
             this.dgvLopHoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLopHoc_CellClick);
+            this.dgvLopHoc.Enter += new System.EventHandler(this.dgvLopHoc_Enter);
             // 
             // btnSua
             // 
@@ -150,12 +157,6 @@
             this.btnHt.Text = "Hiển thị tất cả";
             this.btnHt.UseVisualStyleBackColor = true;
             this.btnHt.Click += new System.EventHandler(this.btnHt_Click);
-            // 
-            // quảnLýLớpHọcToolStripMenuItem
-            // 
-            this.quảnLýLớpHọcToolStripMenuItem.Name = "quảnLýLớpHọcToolStripMenuItem";
-            this.quảnLýLớpHọcToolStripMenuItem.Size = new System.Drawing.Size(127, 24);
-            this.quảnLýLớpHọcToolStripMenuItem.Text = "Quản lý lớp học";
             // 
             // formQllh
             // 
